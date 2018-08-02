@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的 -->
+<mapper namespace="com.zgc.saap.dao.SysDeptDao">
+    <!-- 添加数据 -->
+    <insert id="add" parameterType="com.zgc.saap.model.SysDept">
+        insert into sys_dept(dept_name,dept_code,pid) value(#{dept_name},#{dept_code},#{pid})
+    </insert>
+    <!-- 删除数据 -->
+    <delete id="deleteById" parameterType="int">
+        delete from sys_dept where id = #{id}
+    </delete>
+    <!-- 修改数据 -->
+    <update id="update" parameterType="com.zgc.saap.model.SysDept">
+        update sys_dept set dept_name=#{dept_name},dept_code=#{dept_code},pid=#{pid} where id=#{id}
+    </update>
+    <!--根据id查询得到一个对象-->
+    <select id="findById" parameterType="int"
+            resultType="com.zgc.saap.model.SysDept">
+        select * from sys_dept where id=#{id}
+    </select>
+    <!--&lt;!&ndash; 查询所有的用户 &ndash;&gt;-->
+    <!--<select id="list" resultType="com.mi.beans.User">-->
+    <!--select * from t_user;-->
+    <!--</select>-->
+</mapper>

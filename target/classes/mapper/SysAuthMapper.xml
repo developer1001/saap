@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的 -->
+<mapper namespace="com.zgc.saap.dao.SysAuthDao">
+    <!-- 添加数据 -->
+    <insert id="add" parameterType="com.zgc.saap.model.SysAuth">
+        insert into sys_auth(menuName,menuCode,menuUrl,description) value(#{menuName},#{menuCode},#{menuUrl},#{description})
+    </insert>
+    <!-- 删除数据 -->
+    <delete id="deleteById" parameterType="int">
+        delete from sys_auth where id = #{id}
+    </delete>
+    <!-- 修改数据 -->
+    <update id="update" parameterType="com.zgc.saap.model.SysAuth">
+        update sys_auth set menuName=#{menuName},menuCode=#{menuCode},menuUrl=#{menuUrl},description=#{description} where id=#{id}
+    </update>
+    <!--根据id查询得到一个对象-->
+    <select id="findById" parameterType="int"
+            resultType="com.zgc.saap.model.SysAuth">
+        select * from sys_auth where id=#{id}
+    </select>
+    <!-- 查询角色所有的权限-->
+    <select id="getByRoleId" parameterType="java.util.List" resultMap="list1">
+        select * from sys_auth where id in
+        <foreach collection="authIdList" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+    <resultMap id="list1" type="com.zgc.saap.model.SysAuth">
+        <id column="id" property="id" />
+        <result column="menuName" property="menuName" />
+        <result column="menuCode" property="menuCode" />
+        <result column="menuUrl" property="menuUrl" />
+        <result column="description" property="description" />
+    </resultMap>
+</mapper>
