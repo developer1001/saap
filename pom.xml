@@ -81,7 +81,19 @@
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
         </dependency> -->
-
+        
+		<!--apache shiro  -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+		
         <!-- mysql驱动包 -->
         <dependency>
             <groupId>mysql</groupId>
