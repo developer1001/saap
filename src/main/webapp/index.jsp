@@ -22,11 +22,11 @@
 <div>
 <div class="findUser">
     <input type="text" id="userid" placeholder="请输入用户ID"  value="1"/>
-    <button onclick="find()">查找用户</button></br>
+    <button onclick="find()">查找用户</button><br/>
     <textarea  id="result" cols="40" rows="14">点击查询,正常情况下，此处会返回json串</textarea>
 </div>
 <div class="updateUser">
-    <button onclick="update()">更新用户</button></br>
+    <button onclick="update()">更新用户</button><br/>
     <textarea  id="updateResult" cols="40" rows="7"></textarea><br>
     <input type="hidden" id="up_userid">
     <label>用户名：</label><input type="text" id="up_username" ><br>
@@ -34,7 +34,7 @@
     <label>年&nbsp;&nbsp;&nbsp;龄：</label><input type="text" id="up_age" >
 </div>
 <div class="addUser">
-    <button onclick="add()">添加用户</button></br>
+    <button onclick="add()">添加用户</button><br/>
     <textarea  id="addResult" cols="40" rows="7"></textarea><br>
     <label>用户名：</label><input type="text" id="add_username"><br>
     <label>密&nbsp;&nbsp;&nbsp;码：</label><input type="text" id="add_pwd" placeholder="理应加密处理"><br>
@@ -42,7 +42,7 @@
 </div>
 <div class="deleteUser">
     <input type="text" id="delId" placeholder="请输入用户ID"  value="100"/>
-    <button onclick="del()">删除用户</button></br>
+    <button onclick="del()">删除用户</button><br/>
     <textarea  id="deleteResult" cols="40" rows="14"></textarea>
 </div>
 </div>
