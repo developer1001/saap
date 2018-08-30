@@ -93,7 +93,11 @@
 			<artifactId>shiro-spring</artifactId>
 			<version>1.4.0</version>
 		</dependency>
-		
+	    <dependency>
+        	<groupId>org.apache.shiro</groupId>
+	        <artifactId>shiro-ehcache</artifactId>
+	        <version>1.4.0</version>
+    	</dependency>
         <!-- mysql驱动包 -->
         <dependency>
             <groupId>mysql</groupId>
@@ -114,7 +118,13 @@
             <artifactId>fastjson</artifactId>
             <version>1.1.41</version>
         </dependency>
-
+		<!-- https://mvnrepository.com/artifact/net.sf.json-lib/json-lib -->
+		<dependency>
+		    <groupId>net.sf.json-lib</groupId>
+		    <artifactId>json-lib</artifactId>
+		    <version>2.4</version>
+		    <classifier>jdk15</classifier> 
+		</dependency>
         <!-- logback start -->
         <dependency>
             <groupId>log4j</groupId>
