@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zgc.saap.persistent.dao.SysUserExtendMapper">
+  <select id="getUserByPhone" parameterType="java.lang.String" resultType="com.zgc.saap.persistent.entity.SysUser">
+    select *
+    from sys_user
+    where phone = #{phone,jdbcType=VARCHAR}
+  </select>
+</mapper>

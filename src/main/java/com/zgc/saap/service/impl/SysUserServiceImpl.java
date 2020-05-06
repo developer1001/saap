@@ -1,27 +1,43 @@
 package com.zgc.saap.service.impl;
 
-import com.zgc.saap.base.dao.BaseDao;
-import com.zgc.saap.base.service.impl.BaseServiceImpl;
-import com.zgc.saap.dao.SysUserDao;
-import com.zgc.saap.model.SysUser;
-import com.zgc.saap.service.ISysUserService;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * @program: HMSH
- * @description: 系统用户，SysUser
- * @author: laoyangtou
- * @create: 2018-07-06 14:26
- **/
+import com.zgc.saap.persistent.dao.SysUserExtendMapper;
+import com.zgc.saap.persistent.dao.SysUserMapper;
+import com.zgc.saap.persistent.entity.SysUser;
+import com.zgc.saap.persistent.entity.SysUserExample;
+import com.zgc.saap.service.SysUserService;
 @Service
-public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements ISysUserService {
+public class SysUserServiceImpl implements SysUserService {
+	@Autowired
+	private SysUserMapper sysUserMapper;
+	@Autowired
+	private SysUserExtendMapper sysUserExtendMapper;
+	@Override
+	public SysUser findByUserName(String userName) {
+		SysUserExample example = new SysUserExample();
+		example.createCriteria().andUserNameEqualTo(userName);
+		List<SysUser> users = sysUserMapper.selectByExample(example);
+		if(users != null && users.size() > 0) {
+			return users.get(0);
+		}
+		return null;
+	}
+	
+	@Override
+	public SysUser getUserById(String userId) {
+		return sysUserExtendMapper.getUserByPhone(userId);
+	}
 
-    @Autowired
-    SysUserDao sysUserDao;
-    @Override
-    public BaseDao<SysUser> baseDao() {
-        return sysUserDao;
-    }
+	@Override
+	public int delById(int id) {
+		SysUserExample example = new SysUserExample();
+		example.createCriteria().andIdEqualTo(id);
+		int deleteByExample = sysUserMapper.deleteByExample(example);
+		return deleteByExample;
+	}
 
 }
