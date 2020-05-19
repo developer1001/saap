@@ -70,12 +70,12 @@ public class ShiroConfig {
 		filterChainDefinitionMap.put("/**/*.woff2", "anon");
 		// //管理员角色才可以访问
 		// filterChainDefinitionMap.put("/sysUser/del", "roles[superadmin]");
-		// filterChainDefinitionMap.put("/sysUser/del", "perms[user:del]");
+//		 filterChainDefinitionMap.put("/sysUser/del", "perms[user:del]");
 		SysPermissionExample example = new SysPermissionExample();
 		example.createCriteria().andAvailableEqualTo(Constant.VALID_TRUE);
 		List<SysPermission> permissions = sysPermissionMapper.selectByExample(example);
 		for (SysPermission perm : permissions) {
-			filterChainDefinitionMap.put(perm.getUrl(), perm.getPermission());
+			filterChainDefinitionMap.put(perm.getUrl(), "perms[" + perm.getPermission() + "]");
 		}
 		// 需要登录的接口:如果访问某个接口,需要登录却没有登录,则调用此接口
 		shiroFilterFactoryBean.setLoginUrl("/pub/needLogin");
