@@ -75,7 +75,6 @@ public class MyShiroRealm extends AuthorizingRealm {
         if(user.getActive() == 0) {
         	throw new LockedAccountException("账户已冻结");
         }
-//        this.clearCachedAuthorizationInfo(SecurityUtils.getSubject().getPrincipals());
         return new SimpleAuthenticationInfo(
                 // 这里传入的是user对象，比对的是用户名，直接传入用户名也没错，但是在授权部分就需要自己重新从数据库里取权限
                 user,
