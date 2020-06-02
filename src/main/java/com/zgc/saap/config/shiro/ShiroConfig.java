@@ -53,7 +53,7 @@ public class ShiroConfig {
 		ShiroFilterFactoryBean shiroFilterFactoryBean = new ShiroFilterFactoryBean();
 		shiroFilterFactoryBean.setSecurityManager(securityManager);
 		Map<String, String> filterChainDefinitionMap = new LinkedHashMap<>();
-		filterChainDefinitionMap.put("/logout", "logout");
+//		filterChainDefinitionMap.put("/logout", "logout");
 		filterChainDefinitionMap.put("/login", "anon");
 		// filterChainDefinitionMap.put("/fonts/**", "anon");
 		filterChainDefinitionMap.put("/**/*.png", "anon");
