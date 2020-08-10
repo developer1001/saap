@@ -26,8 +26,8 @@ public class ResResultUtil<T> {
 		return resResult;
 	}
 
-	public static ResResult success() {
-		ResResult resResult = new ResResult();
+	public static ResResult<?> success() {
+		ResResult<?> resResult = new ResResult();
 		resResult.setResultCode(ResultCode.CODE_200);
 		resResult.setResultMessage("OK");
 		resResult.setTimestamp(sdf.format(new Date()));
